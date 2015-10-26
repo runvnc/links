@@ -18,8 +18,6 @@ var _bluebird = require('bluebird');
 
 var _shortid = require('shortid');
 
-var _util = require('util');
-
 var db = (0, _level2['default'])('links');
 (0, _bluebird.promisifyAll)(db);
 
@@ -28,10 +26,11 @@ function save(link) {
   return _regeneratorRuntime.async(function save$(context$1$0) {
     while (1) switch (context$1$0.prev = context$1$0.next) {
       case 0:
-        console.log((0, _util.inspect)(link));
         id = (0, _shortid.generate)();
+
+        link.time = Date.now();
         context$1$0.next = 4;
-        return _regeneratorRuntime.awrap(db.put(id, link, {}));
+        return _regeneratorRuntime.awrap(db.put(id, JSON.stringify(link)));
 
       case 4:
         return context$1$0.abrupt('return', id);
