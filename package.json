@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel --optional runtime -d . src"
+    "build": "babel --optional runtime -d . source"
   },
   "devDependencies": {
     "babel": ""
